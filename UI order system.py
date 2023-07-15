@@ -9,6 +9,7 @@ shoppingcart=[]
 total=0
 memo=[]
 t="微軟正黑體 30"
+te=""
 """
 前飾語
 b button
@@ -37,7 +38,7 @@ def f_memo():
     b_leave.pack()
     
 def doneorder():
-    global l_shoppingcart, b_continue, b_doneorder, shoppingcart, total
+    global l_shoppingcart, b_continue, b_doneorder, shoppingcart, total, te
     l_shoppingcart.destroy()
     b_continue.destroy()
     b_doneorder.destroy()
@@ -47,10 +48,13 @@ def doneorder():
 
     b_order.pack()
     b_memo.pack()
+
+    global memo
+    memo.append(te)
     
 def f_addcart(x):
     shoppingcart.append(x)
-    global total
+    global total,te
     te=shoppingcart[len(shoppingcart)-1].split("\t")
     
     total+=int(te[2])
@@ -73,9 +77,6 @@ def f_addcart(x):
     l_shoppingcart.pack(pady=10)
     b_continue.pack()
     b_doneorder.pack()
-
-    global memo
-    memo.append(te)
 def f_sidedish(text,a1,a2,a3,a4,a5):
     
     if text=="蛋餅":
